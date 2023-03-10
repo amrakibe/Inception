@@ -4,3 +4,4 @@ RUN apt-get update -y && apt-get install mariadb-server -y
 RUN service mysql start
 
 CMD ["mysqld_safe"]
+sss
