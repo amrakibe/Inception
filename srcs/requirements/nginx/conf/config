@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    server_name localhost.com;
+
+    root /var/www/localhost.com;
+
+    location /cgi-bin/ {
+        fastcgi_pass unix:/var/run/fastcgi.sock;
+        fastcgi_index index.cgi;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/localhost.com/cgi-bin$fastcgi_script_name;
+    }
+}
