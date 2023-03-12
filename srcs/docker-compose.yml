@@ -1,36 +1,44 @@
-version: '3'
+version: '3.5'
 services:
   mariadb:
     image: mariadb
     container_name: mariadb
-    build: ./requirements/mariadb
+    build: ./requirements/mariadb/.
     volumes:
-      -  mariadb:/var/www/html
-    depends_on:
-      - mariadb
+      -  db:/var/lib/mysql
     ports:
       - 3306:3306
-    networks: Inception
-  nginx:
-    image: nginx
-    container_name : nginx
-    build: ./requirements/nginx
-    volumes:
-    - nginx:/var/www/html
-    depends_on:
-    - wordpress
-    ports:
-    - 443:443
-    networks: Inception
+    networks:
+      - Inception
 
   wordpress:
     image: wordpress
     container_name: wordpress
-    build: ./requirements/wordpress
+    build: ./requirements/wordpress/.
     volumes:
-      - wordpress:/var/www/html
+      - wp:/var/www/html
     depends_on:
       - mariadb
     ports:
       - 9000:9000
-    networks: Inception
+    networks:
+      - Inception
+  nginx:
+    image: nginx
+    container_name : nginx
+    build: ./requirements/nginx/.
+    volumes:
+    - wp:/var/www/html
+    depends_on:
+    - wordpress
+    ports:
+    - 443:443
+    networks:
+      - Inception
+networks:
+  Inception:
+volumes:
+  db:
+  wp:
+
+#step 1 creat a networks :> step 2 creat a volumse an check if is existe  

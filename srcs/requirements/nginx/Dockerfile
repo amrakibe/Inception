@@ -1,7 +1,7 @@
 FROM debian:buster
 
-RUN apt-get update -y && apt-get install nginx -y
-
-COPY ./conf/config.conf /etc/nginx/sites-available/default
+RUN apt-get update -y && apt-get install nginx openssl -y
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/CN=localhost"
+COPY ./conf/config.conf /etc/nginx/nginx.conf
 
 CMD ["nginx" , "-g" , "daemon off;"]
