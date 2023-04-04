@@ -1,8 +1,10 @@
-build:
-	docker-compose -f ./srcs/docker-compose.yml up -d --build
+run:
+	@docker-compose -f ./srcs/docker-compose.yml up -d --build
+	@echo "docker-compose makeing successfull"
 stop:
-	docker-compose -f ./srcs/docker-compose.yml stop
-	docker rm -f $$(docker ps -a -q)
-	docker rmi -f $$(docker images -a -q)
-	docker volume rm $$(docker volume ls -q)
-	docker network rm $$(docker network ls -q)
+	@docker-compose -f ./srcs/docker-compose.yml stop
+	@echo "docker-compose stop successfull"
+rm: stop
+	@docker rm  $$(docker ps -a -q) -f
+	@docker rmi  $$(docker images -a -q) -f
+	@echo "docker-compose remove images and containers successfull"

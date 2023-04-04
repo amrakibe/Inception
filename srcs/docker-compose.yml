@@ -19,6 +19,8 @@ services:
       - wp:/var/www/html
     depends_on:
       - mariadb
+    env_file:
+      - .env
     ports:
       - 9000:9000
     networks:
@@ -41,4 +43,4 @@ volumes:
   db:
   wp:
 
-#step 1 creat a networks :> step 2 creat a volumse an check if is existe  
+#step 1 creat a networks :> step 2 creat a volumse an check if is existe
