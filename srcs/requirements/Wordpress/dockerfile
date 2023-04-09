@@ -4,6 +4,8 @@ RUN apt-get update -y && apt install wget php-fpm php-mysql -y
 
 RUN service php7.3-fpm start 
 
+# RUN mkdir -p /var/www && mkdir -p /var/www/html
+
 COPY ./tools/script.sh /
 
 RUN chmod 777 /script.sh
