@@ -7,12 +7,11 @@ services:
     volumes:
       -  db:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3306
     networks:
       - Inception
     env_file:
       - .env
-
   wordpress:
     image: wordpress
     container_name: wordpress
@@ -24,7 +23,7 @@ services:
     env_file:
       - .env
     ports:
-      - 9000:9000
+      - 9000
     networks:
       - Inception
   nginx:
