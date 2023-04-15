@@ -4,13 +4,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/amrakibe/goinfre/amrakibe/srcs_db
+      device: /home/amrakibe/data/srcs_db
       o: bind
   wp:
     driver: local
     driver_opts:
       type: none
-      device: /Users/amrakibe/goinfre/amrakibe/srcs_wp
+      device: /home/amrakibe/data/srcs_wp
       o: bind
 services:
   mariadb:
