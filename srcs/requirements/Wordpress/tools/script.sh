@@ -14,10 +14,8 @@ mv wp-cli.phar /usr/local/bin/wp
 mv wp-cli.phar /var/www/html
 wp core download --allow-root
 
-
 mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 mv /wp-config.php /var/www/html/wp-config.php
-
 
 sed -i -r "s/database_name_here/${MYSQL_DATABASE}/g" wp-config.php
 sed -i -r "s/username_here/${MYSQL_USER}/g" wp-config.php
