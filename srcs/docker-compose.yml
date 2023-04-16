@@ -4,13 +4,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/amrakibe/data/srcs_db
+      device: /Users/amrakibe/Desktop/volumes/srcs_db
       o: bind
   wp:
     driver: local
     driver_opts:
       type: none
-      device: /home/amrakibe/data/srcs_wp
+      device: /Users/amrakibe/Desktop/volumes/srcs_wp
       o: bind
 services:
   mariadb:
@@ -53,6 +53,6 @@ services:
       - Inception
 networks:
   Inception:
-    driver: bridge
-      
+    name: Inception
+
 #step 1 creat a networks :> step 2 creat a volumse an check if is existe

@@ -21,3 +21,13 @@ Here are some simple commands in MySQL that you may find useful:
 -> ALTER TABLE table_name ADD column_name datatype - adds a new column to an existing table.
 
 -> These are just a few examples of the many commands available in MySQL. For more information, refer to the MySQL documentation.
+
+
+
+/*
+
+
+    // mysql password is root and create new user with password
+
+
+*/
