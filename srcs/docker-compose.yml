@@ -54,5 +54,6 @@ services:
 networks:
   Inception:
     name: Inception
+    driver: bridge
 
 #step 1 creat a networks :> step 2 creat a volumse an check if is existe
