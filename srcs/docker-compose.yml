@@ -4,13 +4,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/amrakibe/Desktop/volumes/srcs_db
+      device: /home/amrakibe/data/srcs_db
       o: bind
   wp:
     driver: local
     driver_opts:
       type: none
-      device: /Users/amrakibe/Desktop/volumes/srcs_wp
+      device: /home/amrakibe/data/srcs_wp
       o: bind
 services:
   mariadb:
@@ -28,7 +28,7 @@ services:
   wordpress:
     image: wordpress
     container_name: wordpress
-    build: ./requirements/wordpress/.
+    build: ./requirements/Wordpress/.
     volumes:
       - wp:/var/www/html
     depends_on:
