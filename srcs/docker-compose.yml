@@ -25,18 +25,10 @@ services:
       - Inception
     env_file:
       - .env
-  website:
-    image: website:1337
-    container_name: website
-    build: ./requirements/website/.
-    ports:
-      - 8080:8080
-    networks:
-      - Inception
   wordpress:
     image: wordpress:1337
     container_name: wordpress
-    build: ./requirements/Wordpress/.
+    build: ./requirements/wordpress/.
     volumes:
       - wp:/var/www/html
     depends_on:
@@ -59,6 +51,22 @@ services:
     - 443:443
     networks:
       - Inception
+  website:
+    image: website:1337
+    container_name: website
+    build: ./requirements/website/.
+    ports:
+      - 8080:8080
+    networks:
+      - Inception
+  Adminer:
+    image: Adminer:1337
+    container_name: Adminer
+    build: ./requirements/Adminer/.
+    # ports:
+    #   - 8080:8080
+    # networks:
+    #   - Inception
 networks:
   Inception:
     name: Inception
