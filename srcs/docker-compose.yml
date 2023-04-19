@@ -14,7 +14,7 @@ volumes:
       o: bind
 services:
   mariadb:
-    image: mariadb
+    image: mariadb:1337
     container_name: mariadb
     build: ./requirements/mariadb/.
     volumes:
@@ -25,8 +25,16 @@ services:
       - Inception
     env_file:
       - .env
+  website:
+    image: website:1337
+    container_name: website
+    build: ./requirements/website/.
+    ports:
+      - 8080:8080
+    networks:
+      - Inception
   wordpress:
-    image: wordpress
+    image: wordpress:1337
     container_name: wordpress
     build: ./requirements/Wordpress/.
     volumes:
@@ -40,7 +48,7 @@ services:
     networks:
       - Inception
   nginx:
-    image: nginx
+    image: nginx:1337
     container_name : nginx
     build: ./requirements/nginx/.
     volumes:

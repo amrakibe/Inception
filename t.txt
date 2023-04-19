@@ -25,5 +25,6 @@ Here are some simple commands in MySQL that you may find useful:
 
 
 /*
-    // mysql password is root and create new user with password
+    // mysql password is root and create new user with password : done
+    
 */

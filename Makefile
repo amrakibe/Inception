@@ -4,13 +4,15 @@ run:
 stop:
 	@docker-compose -f ./srcs/docker-compose.yml stop
 	@echo "docker-compose stop successfull"
-rm:
+rm_v:
 	@docker volume rm srcs_wp -f
 	@docker volume rm srcs_db -f
 	@echo "docker-compose remove volumes successfull"
-rm_v:
+rm:
 	@docker rm -f $$(docker ps -a -q)
 	@docker rmi -f $$(docker images -a -q)
 	@rm -rf /Users/amrakibe/Desktop/volumes/srcs_db/*
 	@rm -rf /Users/amrakibe/Desktop/volumes/srcs_wp/*
+rm_n:
 	@docker network prune -f
+	@echo "docker-compose remove network successfull"
