@@ -54,19 +54,19 @@ services:
   website:
     image: website:1337
     container_name: website
-    build: ./requirements/website/.
+    build: ./requirements/bonus/website/.
     ports:
       - 8080:8080
     networks:
       - Inception
-  Adminer:
-    image: Adminer:1337
-    container_name: Adminer
-    build: ./requirements/Adminer/.
-    # ports:
-    #   - 8080:8080
-    # networks:
-    #   - Inception
+  adminer:
+    image: adminer:1337
+    container_name: adminer
+    build: ./requirements/bonus/adminer/.
+    ports:
+      - 5000
+    networks:
+      - Inception
 networks:
   Inception:
     name: Inception
