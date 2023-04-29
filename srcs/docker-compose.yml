@@ -48,38 +48,10 @@ services:
     depends_on:
     - wordpress
     ports:
-    - 443:443
+    - "443:443"
     networks:
       - Inception
-  website:
-    image: website:1337
-    container_name: website
-    build: ./requirements/bonus/website/.
-    ports:
-      - 8080:8080
-    networks:
-      - Inception
-  adminer:
-    image: adminer:1337
-    container_name: adminer
-    build: ./requirements/bonus/adminer/.
-    ports:
-      - "500:500"
-    depends_on:
-      - mariadb
-    networks:
-      - Inception
-    restart: always
-  ctop:
-    image: ctop:42
-    container_name: ctop
-    tty: true
-    build: ./requirements/bonus/service/.
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
 networks:
   Inception:
     name: Inception
     driver: bridge
-
-#step 1 creat a networks :> step 2 creat a volumse an check if is existe

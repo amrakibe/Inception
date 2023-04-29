@@ -7,9 +7,11 @@ RUN apt-get install curl -y
 RUN service php7.3-fpm start 
 
 COPY ./tools/script.sh /
+
 COPY ./tools/wp-config.php /
 
 RUN chmod 777 /script.sh
+
 RUN chmod 777 /wp-config.php
 
 CMD [ "/script.sh" ]
