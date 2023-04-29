@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p /var/www && mkdir -p /var/www/html
 cd /var/www/html
-
+# if [! -f /var/www/html/wp-config.php ]; then
 wget https://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 rm -rf latest.tar.gz
@@ -30,3 +30,5 @@ sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm
 mkdir -p /run/php
 
 /usr/sbin/php-fpm7.3 -F
+# fi
+# exec $@

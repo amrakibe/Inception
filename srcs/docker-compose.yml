@@ -20,7 +20,7 @@ services:
     volumes:
       -  db:/var/lib/mysql
     ports:
-      - 3306
+      - "3306"
     networks:
       - Inception
     env_file:
@@ -36,7 +36,7 @@ services:
     env_file:
       - .env
     ports:
-      - 9000
+      - "9000"
     networks:
       - Inception
   nginx:
@@ -70,13 +70,13 @@ services:
     networks:
       - Inception
     restart: always
-  # ctop:
-  #   image: ctop:42
-  #   container_name: ctop
-  #   tty: true
-  #   build: ./requirements/bonus/service/.
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
+  ctop:
+    image: ctop:42
+    container_name: ctop
+    tty: true
+    build: ./requirements/bonus/service/.
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 networks:
   Inception:
     name: Inception
