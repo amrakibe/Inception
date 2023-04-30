@@ -13,18 +13,6 @@ volumes:
       device: /home/amrakibe/data/srcs_wp
       o: bind
 services:
-  mariadb:
-    image: mariadb:1337
-    container_name: mariadb
-    build: ./requirements/mariadb/.
-    volumes:
-      -  db:/var/lib/mysql
-    ports:
-      - "3306"
-    networks:
-      - Inception
-    env_file:
-      - .env
   wordpress:
     image: wordpress:1337
     container_name: wordpress
@@ -39,6 +27,18 @@ services:
       - "9000"
     networks:
       - Inception
+  mariadb:
+    image: mariadb:1337
+    container_name: mariadb
+    build: ./requirements/mariadb/.
+    volumes:
+      -  db:/var/lib/mysql
+    ports:
+      - "3306"
+    networks:
+      - Inception
+    env_file:
+      - .env
   nginx:
     image: nginx:1337
     container_name : nginx
